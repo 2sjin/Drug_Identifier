@@ -11,7 +11,6 @@ with open("model/labels.txt", 'r', encoding="UTF-8") as f:
     for line in f:
         (k, v) = line.split()
         class_dic[int(k)] = v
-print(class_dic)
 
 # 모델 및 테스트 이미지 불러오기
 model = load_model('model/keras_model.h5')
@@ -50,3 +49,7 @@ print()
 plt.imshow(image)
 plt.axis('off')
 plt.show()
+
+# (클래스명, 정확도(%)) 딕셔너리를 외부로 전달
+# 구현 예정
+print(sorted_accuracy_dic)
