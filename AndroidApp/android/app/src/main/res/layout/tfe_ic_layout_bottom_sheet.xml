@@ -291,8 +291,8 @@
             android:id="@+id/device_spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
             android:entries="@array/tfe_ic_devices"
             android:prompt="@string/tfe_ic_device" />
     </RelativeLayout>

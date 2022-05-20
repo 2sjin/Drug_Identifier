@@ -17,8 +17,10 @@
 package org.tensorflow.lite.examples.classification;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.hardware.camera2.CameraAccessException;
@@ -41,6 +43,8 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -98,6 +102,8 @@ public abstract class CameraActivity extends AppCompatActivity
 
   private Device device = Device.CPU;
   private int numThreads = -1;
+
+  private Button shutterButton;  // 셔터 버튼 선언
 
   @Override
   protected void onCreate(final Bundle savedInstanceState) {
@@ -189,6 +195,30 @@ public abstract class CameraActivity extends AppCompatActivity
 
     device = Device.valueOf(deviceSpinner.getSelectedItem().toString());
     numThreads = Integer.parseInt(threadsTextView.getText().toString().trim());
+
+    shutterButton = findViewById(R.id.shutter_button);  // 셔터 버튼 불러오기
+
+    shutterButton.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        AlertDialog.Builder ad = new AlertDialog.Builder(CameraActivity.this);
+        ad.setIcon(R.mipmap.ic_launcher);
+        ad.setTitle("예측 결과");
+        ad.setMessage(recognitionTextView.getText() + "\t\t" + recognitionValueTextView.getText() + "\n"
+                      + recognition1TextView.getText() + "\t\t" + recognition1ValueTextView.getText() + "\n"
+                      + recognition2TextView.getText() + "\t\t" + recognition2ValueTextView.getText() + "\n"
+        );
+
+        ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+          @Override
+          public void onClick(DialogInterface dialog, int which) {
+            dialog.dismiss();
+          }
+        });
+
+        ad.show();
+      }
+    });
   }
 
   protected int[] getRgbBytes() {
@@ -630,4 +660,9 @@ public abstract class CameraActivity extends AppCompatActivity
   public void onNothingSelected(AdapterView<?> parent) {
     // Do nothing.
   }
+
+
+
+
+
 }
