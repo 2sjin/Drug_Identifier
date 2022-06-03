@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/workspace/AndroidStudioProjects/CapstoneDesign/AndroidApp/android/app/src/main/res/layout/activity_test.xml" value="0.264" />
+        <entry key="..\:/workspace/AndroidStudioProjects/CapstoneDesign/AndroidApp/android/app/src/main/res/layout/tfe_ic_camera_connection_fragment.xml" value="0.264" />
+        <entry key="..\:/workspace/AndroidStudioProjects/CapstoneDesign/AndroidApp/android/app/src/main/res/layout/tfe_ic_layout_bottom_sheet.xml" value="0.264" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK" />
+</project>
