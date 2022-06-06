@@ -9,13 +9,13 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     TextView Classification;
     TextView Efficacy;
     TextView eatMedicine;
+    WebView imgView;
 
     String mJSonString=null;
 
@@ -49,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
         Classification = findViewById(R.id.ClassificationText);
         Efficacy = findViewById(R.id.EfficacyText);
         eatMedicine = findViewById(R.id.eatMedicineText);
+
+        imgView = findViewById(R.id.imgView);
+        imgView.loadUrl("https://www.pharm.or.kr:442/images/sb_photo/big3/A11A1270A006002.jpg");
+        imgView.getSettings().setUseWideViewPort(true);
+        imgView.getSettings().setLoadWithOverviewMode(true);
 
         InsertData task = new InsertData();
         task.execute(gid);

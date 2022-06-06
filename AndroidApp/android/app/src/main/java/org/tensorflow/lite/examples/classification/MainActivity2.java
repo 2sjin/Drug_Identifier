@@ -11,8 +11,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -59,6 +61,8 @@ public class MainActivity2 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
 
 
 
@@ -120,12 +124,17 @@ public class MainActivity2 extends AppCompatActivity {
         public View getView(int position, View converView, ViewGroup parent) {
             View view = mLayoutInflater.inflate(R.layout.list_view, null);
 
-            //ImageView imageView = (ImageView)view.findViewById(R.id.poster);
+            WebView imageView = (WebView)view.findViewById(R.id.poster);    // 리스트에 출력할 이미지
             TextView mMedicine = (TextView)view.findViewById(R.id.medicine_Name);
             TextView mClassification = (TextView)view.findViewById(R.id.Classification_Name);
 
             mMedicine.setText(sample.get(position).getMedicinName());
             mClassification.setText(sample.get(position).getClassification());
+
+            // 리스트에 출력할 이미지 설정
+            imageView.loadUrl("https://www.pharm.or.kr:442/images/sb_photo/big3/A11A1270A006002.jpg");
+            imageView.getSettings().setUseWideViewPort(true);
+            imageView.getSettings().setLoadWithOverviewMode(true);
 
             return view;
         }
