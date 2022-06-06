@@ -223,8 +223,8 @@ public class MainActivity2 extends AppCompatActivity {
                     return null;
                 }
             }
-            return String.valueOf(testList);
-            //return testList.get(0);
+            //return String.valueOf(testList);
+            return testList.get(0);
         }
 
 
