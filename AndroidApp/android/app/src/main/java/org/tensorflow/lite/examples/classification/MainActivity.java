@@ -31,11 +31,12 @@ public class MainActivity extends AppCompatActivity {
     TextView name;
     TextView Classification;
     TextView Efficacy;
+    TextView eatMedicine;
+
     String mJSonString=null;
-    Button btn;
 
     // 상세페이지 버튼 클릭 시 접속할 웹사이트 주소
-    String link = "https://www.health.kr/searchDrug/result_drug.asp?drug_cd=2021082400002";
+    String link = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +44,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         String gid = getIntent().getStringExtra("id");
         Log.d("안녕",gid);
+
         name = findViewById(R.id.nameText);
         Classification = findViewById(R.id.ClassificationText);
         Efficacy = findViewById(R.id.EfficacyText);
+        eatMedicine = findViewById(R.id.eatMedicineText);
+
         InsertData task = new InsertData();
         task.execute(gid);
 
@@ -165,10 +169,15 @@ public class MainActivity extends AppCompatActivity {
                     String nname = item.getString("name");
                     String nClass = item.getString("Classification");
                     String nEfficacy = item.getString("Efficacy");
+                    String eat_medication = item.getString("eat_medication");
+                    String nlink = item.getString("link");
+
+                    link = nlink;   // 웹 브라우저로 접속할 웹사이트 주소
 
                     name.setText(nname);
                     Classification.setText(nClass);
                     Efficacy.setText(nEfficacy);
+                    eatMedicine.setText(eat_medication);
                 }
 
             }
