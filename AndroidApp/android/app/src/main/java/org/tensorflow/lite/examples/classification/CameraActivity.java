@@ -202,7 +202,7 @@ public abstract class CameraActivity extends AppCompatActivity
       @Override
       public void onClick(View v) {
 
-        Intent intent = new Intent(getApplicationContext(), TestActivity.class);
+        Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
 
         String [] names = { (String) recognitionTextView.getText(),
                           (String) recognition1TextView.getText(),
