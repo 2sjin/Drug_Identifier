@@ -31,42 +31,42 @@ import org.tensorflow.lite.examples.classification.tflite.Classifier;
 import org.tensorflow.lite.examples.classification.tflite.Classifier.Device;
 
 public class ClassifierActivity extends CameraActivity implements OnImageAvailableListener {
-  private static final Logger LOGGER = new Logger();
-  private static final Size DESIRED_PREVIEW_SIZE = new Size(640, 480);
-  private static final float TEXT_SIZE_DIP = 10;
-  private Bitmap rgbFrameBitmap = null;
-  private long lastProcessingTimeMs;
-  private Integer sensorOrientation;
-  private Classifier classifier;
-  private BorderedText borderedText;
-  /** Input image size of the model along x axis. */
-  private int imageSizeX;
-  /** Input image size of the model along y axis. */
-  private int imageSizeY;
+    private static final Logger LOGGER = new Logger();
+    private static final Size DESIRED_PREVIEW_SIZE = new Size(640, 480);
+    private static final float TEXT_SIZE_DIP = 10;
+    private Bitmap rgbFrameBitmap = null;
+    private long lastProcessingTimeMs;
+    private Integer sensorOrientation;
+    private Classifier classifier;
+    private BorderedText borderedText;
+    /** Input image size of the model along x axis. */
+    private int imageSizeX;
+    /** Input image size of the model along y axis. */
+    private int imageSizeY;
 
-  @Override
-  protected int getLayoutId() {
-    return R.layout.tfe_ic_camera_connection_fragment;
-  }
-
-  @Override
-  protected Size getDesiredPreviewFrameSize() {
-    return DESIRED_PREVIEW_SIZE;
-  }
-
-  @Override
-  public void onPreviewSizeChosen(final Size size, final int rotation) {
-    final float textSizePx =
-        TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_DIP, TEXT_SIZE_DIP, getResources().getDisplayMetrics());
-    borderedText = new BorderedText(textSizePx);
-    borderedText.setTypeface(Typeface.MONOSPACE);
-
-    recreateClassifier(getDevice(), getNumThreads());
-    if (classifier == null) {
-      LOGGER.e("No classifier on preview!");
-      return;
+    @Override
+    protected int getLayoutId() {
+      return R.layout.tfe_ic_camera_connection_fragment;
     }
+
+    @Override
+    protected Size getDesiredPreviewFrameSize() {
+      return DESIRED_PREVIEW_SIZE;
+    }
+
+    @Override
+    public void onPreviewSizeChosen(final Size size, final int rotation) {
+      final float textSizePx =
+          TypedValue.applyDimension(
+              TypedValue.COMPLEX_UNIT_DIP, TEXT_SIZE_DIP, getResources().getDisplayMetrics());
+      borderedText = new BorderedText(textSizePx);
+      borderedText.setTypeface(Typeface.MONOSPACE);
+
+      recreateClassifier(getDevice(), getNumThreads());
+      if (classifier == null) {
+        LOGGER.e("No classifier on preview!");
+        return;
+      }
 
     previewWidth = size.getWidth();
     previewHeight = size.getHeight();

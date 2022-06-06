@@ -3,9 +3,13 @@ package org.tensorflow.lite.examples.classification;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -28,6 +32,11 @@ public class MainActivity extends AppCompatActivity {
     TextView Classification;
     TextView Efficacy;
     String mJSonString=null;
+    Button btn;
+
+    // 상세페이지 버튼 클릭 시 접속할 웹사이트 주소
+    String link = "https://www.health.kr/searchDrug/result_drug.asp?drug_cd=2021082400002";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +48,19 @@ public class MainActivity extends AppCompatActivity {
         Efficacy = findViewById(R.id.EfficacyText);
         InsertData task = new InsertData();
         task.execute(gid);
+
+        // 상세정보 버튼 추가
+        Button btn = findViewById(R.id.webButton);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                Uri uri = Uri.parse(link);
+                intent.setData(uri);
+                startActivity(intent);
+            }
+        });
+
     }
     class InsertData extends AsyncTask<String, Void, String> {
         ProgressDialog progressDialog;
@@ -157,4 +179,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+
 }

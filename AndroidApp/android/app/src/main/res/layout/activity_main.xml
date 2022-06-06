@@ -32,12 +32,23 @@
         android:id="@+id/Classification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="64dp"
         android:text="식약처 분류"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.046"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EfficacyText" />
+
+    <TextView
+        android:id="@+id/eatMedicine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="복약정보"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ClassificationText" />
 
     <TextView
         android:id="@+id/EfficacyText"
@@ -65,10 +76,32 @@
         android:id="@+id/ClassificationText"
         android:layout_width="374dp"
         android:layout_height="77dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="12dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.432"
+        app:layout_constraintHorizontal_bias="0.459"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Classification" />
+
+    <TextView
+        android:id="@+id/eatMedicineText"
+        android:layout_width="376dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eatMedicine" />
+
+    <Button
+        android:id="@+id/webButton"
+        android:layout_width="125dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="16dp"
+        android:text="상세페이지"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eatMedicineText" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
