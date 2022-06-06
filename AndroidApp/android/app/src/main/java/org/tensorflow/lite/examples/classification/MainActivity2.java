@@ -135,6 +135,7 @@ public class MainActivity2 extends AppCompatActivity {
             imageView.loadUrl("https://www.pharm.or.kr:442/images/sb_photo/big3/A11A1270A006002.jpg");
             imageView.getSettings().setUseWideViewPort(true);
             imageView.getSettings().setLoadWithOverviewMode(true);
+            imageView.setFocusable(false);
 
             return view;
         }

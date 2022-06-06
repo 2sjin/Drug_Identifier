@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         imgView.loadUrl("https://www.pharm.or.kr:442/images/sb_photo/big3/A11A1270A006002.jpg");
         imgView.getSettings().setUseWideViewPort(true);
         imgView.getSettings().setLoadWithOverviewMode(true);
+        imgView.setFocusable(false);
 
         InsertData task = new InsertData();
         task.execute(gid);
