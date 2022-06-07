@@ -133,6 +133,13 @@ public class MainActivity2 extends AppCompatActivity {
             mClassification.setText(sample.get(position).getClassification());
 
             // 리스트에 출력할 이미지 설정
+<<<<<<< HEAD
+=======
+            imageView.loadUrl("https://www.pharm.or.kr:442/images/sb_photo/big3/A11A1270A006002.jpg");
+            imageView.getSettings().setUseWideViewPort(true);
+            imageView.getSettings().setLoadWithOverviewMode(true);
+            imageView.setFocusable(false);
+>>>>>>> b7b11bbef1d12bbe600d8cf8b71cd1d883da1f00
 
             return view;
         }

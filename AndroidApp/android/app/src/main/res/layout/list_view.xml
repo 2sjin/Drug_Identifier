@@ -8,9 +8,10 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="408dp"
+        android:layout_height="85dp"
         android:orientation="horizontal"
+<<<<<<< HEAD
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="127dp"
         tools:ignore="MissingConstraints">
@@ -19,6 +20,18 @@
             android:id="@+id/poster"
             android:layout_width="122dp"
             android:layout_height="90dp"
+=======
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <WebView
+            android:id="@+id/poster"
+            android:layout_width="137dp"
+            android:layout_height="64dp"
+            android:layout_marginRight="16dp"
+>>>>>>> b7b11bbef1d12bbe600d8cf8b71cd1d883da1f00
             android:layout_weight="1"
             android:scaleType="fitXY"
             tools:ignore="WebViewLayout" />
