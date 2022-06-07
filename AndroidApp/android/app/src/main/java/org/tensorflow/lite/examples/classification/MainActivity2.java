@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +33,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
 
 public class MainActivity2 extends AppCompatActivity {
     String mJSonString=null;
@@ -68,17 +70,17 @@ public class MainActivity2 extends AppCompatActivity {
 
     }
     public class SampleData {
-        private int poster;
+        private String poster;
         private String medicinName;
         private String Classification;
 
-        public SampleData(int poster, String medicinName, String Classification){
+        public SampleData(String poster, String medicinName, String Classification){
             this.poster = poster;
             this.medicinName = medicinName;
             this.Classification = Classification;
         }
 
-        public int getPoster()
+        public String getPoster()
         {
             return this.poster;
         }
@@ -124,17 +126,13 @@ public class MainActivity2 extends AppCompatActivity {
         public View getView(int position, View converView, ViewGroup parent) {
             View view = mLayoutInflater.inflate(R.layout.list_view, null);
 
-            WebView imageView = (WebView)view.findViewById(R.id.poster);    // 리스트에 출력할 이미지
+            WebView imageView = (WebView) view.findViewById(R.id.poster);    // 리스트에 출력할 이미지
             TextView mMedicine = (TextView)view.findViewById(R.id.medicine_Name);
             TextView mClassification = (TextView)view.findViewById(R.id.Classification_Name);
-
             mMedicine.setText(sample.get(position).getMedicinName());
             mClassification.setText(sample.get(position).getClassification());
 
             // 리스트에 출력할 이미지 설정
-            imageView.loadUrl("https://www.pharm.or.kr:442/images/sb_photo/big3/A11A1270A006002.jpg");
-            imageView.getSettings().setUseWideViewPort(true);
-            imageView.getSettings().setLoadWithOverviewMode(true);
 
             return view;
         }
@@ -153,23 +151,36 @@ public class MainActivity2 extends AppCompatActivity {
         @Override
         public void onPostExecute(String result) {
             super.onPostExecute(result);
-            Log.d("전체출력",result);
-            /*
-            String[] st = result.split("},");
-            for(int i=0;i<3;i++){
-                String token = st[i];
-                Log.d("Token"+i,token);
-            }
-            */
-            progressDialog.dismiss();
             Log.d(TAG, "response - " + result);
+
+            String result_str[] = new String[3];
+            int start = 1;
+            for (int i = 0;i<2;i++){
+                int index_num = result.indexOf("},",start);
+                Log.d("result["+i+"]", String.valueOf(index_num));
+                result_str[i] = result.substring(start,index_num);
+                result_str[i] +="}";
+                start = index_num+3;
+
+            }
+            result_str[2] = result.substring(start);
+            for (int i =0;i<3;i++){
+                Log.d("result_str["+i+"]",result_str[i]);
+            }
+
+            progressDialog.dismiss();
+
             if (result == null){
 
                 Log.d("첫번쨰 실패",errorString);
             }
             else {
-                mJSonString = result;
-                showResult();
+                for (int i =0 ;i<3;i++){
+                    mJSonString = result_str[i];
+                    showResult();
+
+                }
+                showAdapter();
             }
         }
         public String doInBackground(String... params) {
@@ -222,7 +233,6 @@ public class MainActivity2 extends AppCompatActivity {
 
 
                     bufferedReader.close();
-
                     testList.add(sb.toString().trim());
 
                 } catch (Exception e) {
@@ -232,8 +242,8 @@ public class MainActivity2 extends AppCompatActivity {
                     return null;
                 }
             }
-            //return String.valueOf(testList);
-            return testList.get(0);
+            return String.valueOf(testList);
+            //return testList.get(0);
         }
 
 
@@ -248,13 +258,10 @@ public class MainActivity2 extends AppCompatActivity {
                     String nname = item.getString("name");
                     String nClass = item.getString("Classification");
                     Log.d("nname+nClass",nname+nClass);
-                    mitem.add(new SampleData(i,nname,nClass));
-
-
-
+                    //Bitmap nImg = StringToBitmap(jsonObject.getString("img"));
+                    mitem.add(new SampleData("0",nname,nClass));
                 }
-                final MyAdapter myAdapter = new MyAdapter(MainActivity2.this,mitem);
-                mListView.setAdapter(myAdapter);
+
 
             }
             catch (JSONException e){
@@ -262,6 +269,23 @@ public class MainActivity2 extends AppCompatActivity {
             }
 
         }
+        private void showAdapter(){
+            final MyAdapter myAdapter = new MyAdapter(MainActivity2.this,mitem);
+            mListView.setAdapter(myAdapter);
+        }
 
     }
+    public static Bitmap StringToBitmap(String image) {
+        try {
+            byte[] encodeByte = Base64.decode(image, Base64.DEFAULT);
+            // Base64 코드를 디코딩하여 바이트 형태로 저장
+            Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+            // 바이트 형태를 디코딩하여 비트맵 형태로 저장
+            return bitmap;
+        } catch (Exception e) {
+            e.getMessage();
+            return null;
+        }
+    }
+
 }
