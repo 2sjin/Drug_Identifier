@@ -19,6 +19,9 @@
         android:theme="@style/AppTheme.ImageClassification"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ClassifierActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
@@ -28,7 +31,7 @@
             android:name=".TestActivity"
             android:exported="false" />
         <activity
-            android:name=".ClassifierActivity"
+            android:name=".LogoActivity"
             android:label="@string/tfe_ic_app_name"
             android:screenOrientation="portrait">
             <intent-filter>
