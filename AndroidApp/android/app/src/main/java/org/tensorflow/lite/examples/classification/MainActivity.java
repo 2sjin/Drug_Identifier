@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     // 상세페이지 버튼 클릭 시 접속할 웹사이트 주소
     String link = "";
+    String link_img = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,12 +51,7 @@ public class MainActivity extends AppCompatActivity {
         Classification = findViewById(R.id.ClassificationText);
         Efficacy = findViewById(R.id.EfficacyText);
         eatMedicine = findViewById(R.id.eatMedicineText);
-
         imgView = findViewById(R.id.imgView);
-        imgView.loadUrl("https://www.pharm.or.kr:442/images/sb_photo/big3/A11A1270A006002.jpg");
-        imgView.getSettings().setUseWideViewPort(true);
-        imgView.getSettings().setLoadWithOverviewMode(true);
-        imgView.setFocusable(false);
 
         InsertData task = new InsertData();
         task.execute(gid);
@@ -178,13 +174,21 @@ public class MainActivity extends AppCompatActivity {
                     String nEfficacy = item.getString("Efficacy");
                     String eat_medication = item.getString("eat_medication");
                     String nlink = item.getString("link");
+                    String nlink_img = item.getString("link_img");
 
                     link = nlink;   // 웹 브라우저로 접속할 웹사이트 주소
+                    link_img = nlink_img;   // 이미지 경로
 
                     name.setText(nname);
                     Classification.setText(nClass);
                     Efficacy.setText(nEfficacy);
                     eatMedicine.setText(eat_medication);
+
+                    // 이미지뷰 설정 및 이미지 표시
+                    imgView.loadUrl(link_img);
+                    imgView.getSettings().setUseWideViewPort(true);
+                    imgView.getSettings().setLoadWithOverviewMode(true);
+                    imgView.setFocusable(false);
                 }
 
             }

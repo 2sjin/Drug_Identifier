@@ -58,8 +58,10 @@ public class MainActivity2 extends AppCompatActivity {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
+                int selectedIndex = position;   // 리스트뷰 아이템의 인덱스 가져오기
+
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                intent.putExtra("id", sepID[0]);
+                intent.putExtra("id", sepID[selectedIndex]);
                 startActivity(intent);
             }
         });
@@ -73,11 +75,13 @@ public class MainActivity2 extends AppCompatActivity {
         private String poster;
         private String medicinName;
         private String Classification;
+        private String link_img;
 
-        public SampleData(String poster, String medicinName, String Classification){
+        public SampleData(String poster, String medicinName, String Classification, String link_img){
             this.poster = poster;
             this.medicinName = medicinName;
             this.Classification = Classification;
+            this.link_img = link_img;
         }
 
         public String getPoster()
@@ -93,6 +97,11 @@ public class MainActivity2 extends AppCompatActivity {
         public String getClassification()
         {
             return this.Classification;
+        }
+
+        public String getLinkImage()
+        {
+            return this.link_img;
         }
     }
     public class MyAdapter extends BaseAdapter {
@@ -134,7 +143,7 @@ public class MainActivity2 extends AppCompatActivity {
 
             // 리스트에 출력할 이미지 설정
 
-            imageView.loadUrl("https://www.pharm.or.kr:442/images/sb_photo/big3/A11A1270A006002.jpg");
+            imageView.loadUrl(sample.get(position).getLinkImage());
             imageView.getSettings().setUseWideViewPort(true);
             imageView.getSettings().setLoadWithOverviewMode(true);
             imageView.setFocusable(false);
@@ -247,6 +256,9 @@ public class MainActivity2 extends AppCompatActivity {
                     return null;
                 }
             }
+
+            Log.d("리턴값", String.valueOf(testList));
+
             return String.valueOf(testList);
             //return testList.get(0);
         }
@@ -262,9 +274,10 @@ public class MainActivity2 extends AppCompatActivity {
                     String nid = item.getString("id");
                     String nname = item.getString("name");
                     String nClass = item.getString("Classification");
+                    String nlink_img = item.getString("link_img");
                     Log.d("nname+nClass",nname+nClass);
                     //Bitmap nImg = StringToBitmap(jsonObject.getString("img"));
-                    mitem.add(new SampleData("0",nname,nClass));
+                    mitem.add(new SampleData("0",nname,nClass,nlink_img));
                 }
 
 
