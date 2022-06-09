@@ -107,16 +107,9 @@ public abstract class CameraActivity extends AppCompatActivity
 
   @Override
   protected void onCreate(final Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
     LOGGER.d("onCreate " + this);
+    super.onCreate(null);
     getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
-    onResumeFragments();
-  }
-
-  @Override
-  protected void onResumeFragments() {
-    super.onResumeFragments();
 
     setContentView(R.layout.tfe_ic_activity_camera);
 
