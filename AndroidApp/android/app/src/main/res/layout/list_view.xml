@@ -38,7 +38,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/Classification_Name"
@@ -46,7 +48,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>
 
