@@ -105,14 +105,15 @@ public abstract class CameraActivity extends AppCompatActivity
 
   private Button shutterButton;  // 셔터 버튼 선언 
 
-
-
-
-
   @Override
   protected void onCreate(final Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    LOGGER.d("onCreate " + this);
+    onPostResume();
+  }
+
+  @Override
+  protected void onPostResume() {
+    super.onPostResume();
 
     getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
