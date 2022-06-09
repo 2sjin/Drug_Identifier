@@ -113,11 +113,6 @@ public abstract class CameraActivity extends AppCompatActivity
   protected void onCreate(final Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     LOGGER.d("onCreate " + this);
-  }
-
-  @Override
-  protected void onResumeFragments() {
-    super.onResumeFragments();
 
     getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
