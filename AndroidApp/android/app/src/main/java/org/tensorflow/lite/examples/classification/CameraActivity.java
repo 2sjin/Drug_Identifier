@@ -103,12 +103,17 @@ public abstract class CameraActivity extends AppCompatActivity
   private Device device = Device.CPU;
   private int numThreads = -1;
 
-  private Button shutterButton;  // 셔터 버튼 선언
+  private Button shutterButton;  // 셔터 버튼 선언 
+
+
+
+
 
   @Override
   protected void onCreate(final Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
     LOGGER.d("onCreate " + this);
-    super.onCreate(null);
+
     getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
     setContentView(R.layout.tfe_ic_activity_camera);
