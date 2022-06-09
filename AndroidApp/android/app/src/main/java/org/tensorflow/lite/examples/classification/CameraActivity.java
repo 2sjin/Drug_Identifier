@@ -103,7 +103,7 @@ public abstract class CameraActivity extends AppCompatActivity
   private Device device = Device.CPU;
   private int numThreads = -1;
 
-  private Button shutterButton;  // 셔터 버튼 선언
+  private Button shutterButton;  // 셔터 버튼 선언 
 
   @Override
   protected void onCreate(final Bundle savedInstanceState) {
