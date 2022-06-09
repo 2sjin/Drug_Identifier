@@ -19,6 +19,9 @@
         android:theme="@style/AppTheme.ImageClassification"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".LogoActivity2"
+            android:exported="false" />
+        <activity
             android:name=".ClassifierActivity"
             android:exported="false" />
         <activity
