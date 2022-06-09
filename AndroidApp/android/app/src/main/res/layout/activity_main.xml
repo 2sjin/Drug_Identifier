@@ -8,115 +8,79 @@
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="125dp">
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="236dp"
-        android:text="[이름]"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.031"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/Efficacy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="[성분 / 함량]"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.035"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/Classification"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="[식약처 분류]"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.035"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EfficacyText" />
+            <WebView
+                android:id="@+id/imgView"
+                android:layout_width="413dp"
+                android:layout_height="224dp" />
 
-    <TextView
-        android:id="@+id/eatMedicine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="[복약정보]"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.033"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ClassificationText" />
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[이름]"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/EfficacyText"
-        android:layout_width="357dp"
-        android:layout_height="111dp"
-        android:layout_marginTop="4dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.222"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Efficacy" />
+            <TextView
+                android:id="@+id/nameText"
+                android:layout_width="362dp"
+                android:layout_height="22dp"
+                android:text="TextView" />
 
-    <TextView
-        android:id="@+id/nameText"
-        android:layout_width="362dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="12dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/Efficacy"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name"
-        app:layout_constraintVertical_bias="0.205" />
+            <TextView
+                android:id="@+id/Classification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[식약처 분류]"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/ClassificationText"
-        android:layout_width="379dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="4dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.375"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Classification" />
+            <TextView
+                android:id="@+id/ClassificationText"
+                android:layout_width="379dp"
+                android:layout_height="47dp"
+                android:text="TextView" />
 
-    <TextView
-        android:id="@+id/eatMedicineText"
-        android:layout_width="376dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="4dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.342"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eatMedicine" />
+            <TextView
+                android:id="@+id/Efficacy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[성분 / 함량]"
+                android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/webButton"
-        android:layout_width="125dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="40dp"
-        android:text="상세페이지"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eatMedicineText" />
+            <TextView
+                android:id="@+id/EfficacyText"
+                android:layout_width="357dp"
+                android:layout_height="111dp"
+                android:text="TextView" />
 
-    <WebView
-        android:id="@+id/imgView"
-        android:layout_width="413dp"
-        android:layout_height="224dp"
-        android:layout_marginBottom="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/eatMedicine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[복약정보]"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/eatMedicineText"
+                android:layout_width="376dp"
+                android:layout_height="62dp"
+                android:text="TextView" />
+
+            <Button
+                android:id="@+id/webButton"
+                android:layout_width="125dp"
+                android:layout_height="53dp"
+                android:layout_gravity="center"
+                android:text="상세페이지" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
