@@ -20,7 +20,7 @@ public class LogoActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }, 1500);   // 1.5초 대기
+        }, 2000);   // 2.5초 대기
 
     }
 }
