@@ -58,7 +58,7 @@
                     android:layout_height="96dp"
                     android:layout_marginStart="155dp"
                     android:layout_marginEnd="155dp"
-                    android:layout_marginBottom="64dp"
+                    android:layout_marginBottom="32dp"
                     android:background="@drawable/camera"
                     android:foreground="@drawable/camera"
                     android:onClick="onClick"
