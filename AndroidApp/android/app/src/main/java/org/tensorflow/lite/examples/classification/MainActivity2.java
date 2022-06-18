@@ -2,6 +2,7 @@ package org.tensorflow.lite.examples.classification;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -304,6 +305,16 @@ public class MainActivity2 extends AppCompatActivity {
             e.getMessage();
             return null;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        Intent intent = new Intent(getApplicationContext(), ClassifierActivity.class);
+        startActivity(intent);
+
+        finish();
     }
 
 }

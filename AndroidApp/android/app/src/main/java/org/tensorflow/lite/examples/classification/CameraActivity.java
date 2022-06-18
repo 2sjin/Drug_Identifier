@@ -222,6 +222,7 @@ public abstract class CameraActivity extends AppCompatActivity
         intent.putExtra("classValues", values);
 
         startActivity(intent);
+        finish();
 
       }
     });
