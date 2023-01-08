@@ -2,6 +2,9 @@
 ![image](https://user-images.githubusercontent.com/91407433/175778959-7e800856-61a1-4a63-9a76-1f35e581f850.png)
 - 기여자: 이승진, 조준호
 
+## 산출물
+[☞ 프로젝트 결과보고서](https://drive.google.com/file/d/1yyf5m6vsfhbuc2hW-h3Wz_Pk38vHf5so/view?usp=sharing)
+
 ## 목표
 단말기와 연결된 카메라 혹은 기억장치에 저장된 이미지 파일을 분석하여 의약품을 식별 검색하는 안드로이드 애플리케이션을 구현하는 것을 목표로 프로젝트를 진행한다.
 
